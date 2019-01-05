@@ -11,13 +11,9 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-
-import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -122,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
                     Tab2Gallery tab2 = new Tab2Gallery();
                     return tab2;
                 case 2:
-                    Tab3Undecided tab3 = new Tab3Undecided();
+                    Tab3Game tab3 = new Tab3Game();
                     return tab3;
                 default:
                     return null;

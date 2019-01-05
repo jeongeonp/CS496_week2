@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
+    tools:context=".FbLogin">
+
+    <Button
+        android:id="@+id/game"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="start game"
+        />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/avatar"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
+
+        <TextView
+            android:id="@+id/txtEmail"
+            android:layout_marginTop="10dp"
+            android:textSize="20dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/txtBirthday"
+            android:layout_marginTop="10dp"
+            android:textSize="20dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/txtFriends"
+            android:layout_marginTop="10dp"
+            android:textSize="20dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:orientation="vertical"
+            >
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                >
+
+                <com.facebook.login.widget.LoginButton
+                    android:text="Click to Login"
+                    android:textSize="13dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="26dp"
+                    android:id="@+id/login_button"
+                    android:layout_gravity="center"
+                    android:visibility="gone" />
+
+                <Button
+                    android:layout_width="106dp"
+                    android:layout_height="26dp"
+                    android:textSize="13dp"
+                    android:textAllCaps="false"
+                    android:background="#3B5996"
+                    android:textColor="#FFFFFF"
+                    android:text="Click to Login"
+                    android:layout_gravity="center"
+                    android:id="@+id/fb"
+                    />
+
+            </FrameLayout>
+
+
+            <Button
+                android:layout_marginTop="10dp"
+                android:layout_width="106dp"
+                android:layout_height="26dp"
+                android:textSize="13dp"
+                android:textAllCaps="false"
+                android:background="#3B5996"
+                android:textColor="#FFFFFF"
+                android:text="Click to Logout"
+                android:id="@+id/logout_button"/>
+
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>
