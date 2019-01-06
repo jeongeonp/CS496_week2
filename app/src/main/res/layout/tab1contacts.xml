@@ -6,7 +6,8 @@
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Tab1Contacts">
+    tools:context=".Tab1Contacts"
+    >
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
@@ -27,7 +28,7 @@
         android:layout_alignParentEnd="true"/>
 
 
-    <ListView xmlns:android="http://schemas.android.com/apk/res/android"
+    <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
@@ -35,6 +36,7 @@
         android:layout_below="@+id/loadButton"
         android:choiceMode="singleChoice"
         android:id="@+id/listView"
+        android:paddingBottom="40dp"
         />
 
 </RelativeLayout>

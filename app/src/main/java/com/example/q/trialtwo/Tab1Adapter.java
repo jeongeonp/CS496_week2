@@ -2,6 +2,7 @@ package com.example.q.trialtwo;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 
 import android.app.Activity;
 import android.content.Context;
@@ -14,30 +15,72 @@ import android.widget.CursorAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class Tab1Adapter extends CursorAdapter {
-    private LayoutInflater cursorInflater;
 
-    // Default constructor
-    public Tab1Adapter(Context context, Cursor cursor, int flags) {
-        super(context, cursor, flags);
-        cursorInflater = (LayoutInflater) context.getSystemService(
-                Context.LAYOUT_INFLATER_SERVICE);
+
+public class Tab1Adapter extends BaseAdapter
+{
+    private LayoutInflater inflater;
+    private LinkedList<Tuple<String, String, String>> data;
+    private int layout;
+
+    public Tab1Adapter(Context ctx, int layout_init, LinkedList<Tuple<String, String, String>> data_init) {
+        if(data_init == null)
+        {
+            data = new LinkedList<>();
+        }
+        else
+        {
+            data = data_init;
+        }
+        layout = layout_init;
+        inflater = (LayoutInflater)ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+    }
+    @Override
+    public int getCount() {
+        return data.size();
     }
 
-    public void bindView(View view, Context context, Cursor cursor) {
-        TextView name = (TextView) view.findViewById(R.id.name);
-        TextView mobile = (TextView) view.findViewById(R.id.mobile);
-        TextView email = (TextView) view.findViewById(R.id.email);
-        //String s_name = cursor.getString( cursor.getColumnIndex( MyTable.COLUMN_TITLE ) );
-        //String s_mobile = cursor.getString( cursor.getColumnIndex( MyTable.COLUMN_TITLE ) );
-        //String s_email = cursor.getString( cursor.getColumnIndex( MyTable.COLUMN_TITLE ) );
-        //name.setText(s_name);
-        //name.setText(s_mobile);
-        //name.setText(s_email);
+    @Override
+    public Object getItem(int i) {
+        return null;
     }
 
-    public View newView(Context context, Cursor cursor, ViewGroup parent) {
-        // R.layout.list_row is your xml layout for each row
-        return cursorInflater.inflate(R.layout.list_item, parent, false);
+    @Override
+    public long getItemId(int i) {
+        return i;
     }
+
+    @Override
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        if(view == null) {
+            view = inflater.inflate(layout, viewGroup, false);
+        }
+
+        Tuple<String, String, String> d = data.get(i);
+
+        TextView name = view.findViewById(R.id.name);
+        name.setText(d.first);
+        TextView contact = view.findViewById(R.id.mobile);
+        contact.setText(d.second);
+        TextView email = view.findViewById(R.id.email);
+        email.setText(d.third);
+
+
+        return view;
+    }
+
+}
+
+class Tuple<X, Y, Z> {
+    final X first;
+    final Y second;
+    final Z third;
+    Tuple(X x, Y y, Z z)
+    {
+        first = x;
+        second = y;
+        third = z;
+    }
+
 }
