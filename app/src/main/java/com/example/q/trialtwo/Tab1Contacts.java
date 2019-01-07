@@ -65,6 +65,7 @@ public class Tab1Contacts extends Fragment {
         loadButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //<Tuple<String, String, String>> phoneData
                 new LoadContactTask().execute();
             }
         });
@@ -109,11 +110,25 @@ public class Tab1Contacts extends Fragment {
 
 
     private static void resultToJson(LinkedList<Tuple<String, String, String>> result) {
+        Tuple<String, String, String> cur = new Tuple<String, String, String>("","","");
+        cur = result.getFirst();
 
         JSONArray jsonArray = new JSONArray();
         for (int i=0; i<result.size(); i++) {
-            jsonArray.getJSONObject(i).put("name", result.getFirst().first);
+            try{
+                jsonArray.getJSONObject(i).put("name", cur.first);
+                jsonArray.getJSONObject(i).put("number", cur.second);
+                jsonArray.getJSONObject(i).put("email", cur.third);
+                Log.d("each item", "each item has " + cur.first + " phone number: " + cur.second + " and email address: " + cur.third);
+
+                cur=result.get(i);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
         }
+
+
 
     }
 
@@ -270,12 +285,12 @@ public class Tab1Contacts extends Fragment {
     }
 
 
-    protected void onPostExecute(LinkedList<Tuple<String, String, String>> result) {
+    /*protected void onPostExecute(LinkedList<Tuple<String, String, String>> result) {
 
         ListView simpleList = (ListView) getView().findViewById(R.id.listView);
         Tab1Adapter arrayAdapter = new Tab1Adapter(getActivity(), R.layout.list_item, result);
         simpleList.setAdapter(arrayAdapter);
-    }
+    }*/
 }
 
 
