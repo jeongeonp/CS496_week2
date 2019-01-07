@@ -45,6 +45,7 @@ public class FbLogin extends AppCompatActivity {
     ProgressDialog mDialog;
     ImageView imgAvatar;
     Button logout_button, fb, game;
+    String email, birthday, friends, name;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -98,25 +99,19 @@ public class FbLogin extends AppCompatActivity {
                         mDialog.dismiss();
                         Log.d("response", response.toString());
                         getData(object);
-                        /*try { Thread.sleep(5000); }
-                        catch (InterruptedException ex) { android.util.Log.d("FbLogin", ex.toString()); }
-                        Intent intent = new Intent(FbLogin.this, game.class);
+
                         try {
-                            intent.putExtra("name", object.getString("name"));
-                        } catch (JSONException e) {
-                            e.printStackTrace();
+                            name = object.getString("name");
+                            email = object.getString("email");
+                            birthday = object.getString("birthday");
+                            friends = object.getJSONObject("friends").getJSONObject("summary").getString("total_count");
+
+                            Log.i("RESULTS : ", object.getString("email"));
+                        }catch (Exception e){
+
                         }
-                        try {
-                            intent.putExtra("email", object.getString("email"));
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                        try {
-                            intent.putExtra("birthday", object.getString("birthday"));
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                        startActivity(intent);*/
+                        //Intent intent = new Intent(FbLogin.this, game.class);
+                        //startActivity(intent);
                     }
                 });
 
@@ -143,13 +138,6 @@ public class FbLogin extends AppCompatActivity {
             //imgAvatar.setVisibility(View.VISIBLE);
             txtEmail.setText(AccessToken.getCurrentAccessToken().getUserId());
         }
-        /*else {
-            imgAvatar.setVisibility(View.INVISIBLE);
-            txtEmail.setText("Logged out");
-            txtBirthday.setText("");
-            txtFriends.setText("");
-        }*/
-
 
         logout_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -171,6 +159,10 @@ public class FbLogin extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(FbLogin.this, game.class);
+                intent.putExtra("name",name);
+                intent.putExtra("email", email);
+                intent.putExtra("birthday", birthday);
+                intent.putExtra("friends", friends);
                 startActivity(intent);
             }
         });
@@ -186,10 +178,11 @@ public class FbLogin extends AppCompatActivity {
 
     private void getData(JSONObject object) {
         try{
-            Toast.makeText(this, object.getString("email"), Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, object.getString("email"), Toast.LENGTH_SHORT).show();
             URL profile_picture = new URL("https://graph.facebook.com/" + object.getString("id")+"/picture?width=250&height=250");
 
             Picasso.with(this).load(profile_picture.toString()).into(imgAvatar);
+
 
             txtEmail.setText(object.getString("email"));
             txtBirthday.setText(object.getString("birthday"));
