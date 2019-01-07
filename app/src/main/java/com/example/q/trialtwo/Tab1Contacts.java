@@ -88,6 +88,15 @@ public class Tab1Contacts extends Fragment {
 
                 GetData task = new GetData();
                 task.execute("http://socrip4.kaist.ac.kr:2680/api/books");
+            }
+        });
+
+
+        Button push = (Button) view.findViewById(R.id.push);
+
+        push.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
             }
         });
@@ -96,6 +105,16 @@ public class Tab1Contacts extends Fragment {
         String URL = "http://socrip4.kaist.ac.kr:2680/api/books";
 
         return view;
+    }
+
+
+    private static void resultToJson(LinkedList<Tuple<String, String, String>> result) {
+
+        JSONArray jsonArray = new JSONArray();
+        for (int i=0; i<result.size(); i++) {
+            jsonArray.getJSONObject(i).put("name", result.getFirst().first);
+        }
+
     }
 
     private class LoadContactTask extends AsyncTask<Void, Void, LinkedList<Tuple<String, String, String>>> {
@@ -167,10 +186,7 @@ public class Tab1Contacts extends Fragment {
             Log.d(TAG, "response  - " + result);
 
             if (result == null) {
-
-
             } else {
-
                 mJsonString = result;
                 showResult();
             }
@@ -179,20 +195,16 @@ public class Tab1Contacts extends Fragment {
 
         @Override
         protected String doInBackground(String... params) {
-
             String serverURL = params[0];
-
 
             try {
 
                 URL url = new URL(serverURL);
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
 
-
                 httpURLConnection.setReadTimeout(5000);
                 httpURLConnection.setConnectTimeout(5000);
                 httpURLConnection.connect();
-
 
                 int responseStatusCode = httpURLConnection.getResponseCode();
                 Log.d(TAG, "response code - " + responseStatusCode);
@@ -204,7 +216,6 @@ public class Tab1Contacts extends Fragment {
                     inputStream = httpURLConnection.getErrorStream();
                 }
 
-
                 InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "UTF-8");
                 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
@@ -215,12 +226,9 @@ public class Tab1Contacts extends Fragment {
                     sb.append(line);
                 }
 
-
                 bufferedReader.close();
 
-
                 return sb.toString().trim();
-
 
             } catch (Exception e) {
 
@@ -244,13 +252,11 @@ public class Tab1Contacts extends Fragment {
                 String id = item.getString(TAG_ID);
                 String name = item.getString(TAG_NAME);
                 String address = item.getString(TAG_ADDRESS);
-                Log.d("name -", name);
-                Log.d("email - ", address);
+                Log.d("each item", "each item has " + name + " phone number: " + id + " and email address: " + address);
 
                 Tuple<String, String, String> idd = new Tuple<>(name, id, address);
 
                 data.add(idd);
-
             }
 
             Tab1Adapter dataAdapter = new Tab1Adapter(getActivity(), R.layout.list_item, data);
