@@ -7,36 +7,62 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Tab1Contacts"
+
     >
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+
+
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Android Contacts.."
-        android:paddingLeft="55dp"
-        android:paddingTop="15dp"
-        />
-
-    <Button
-        android:layout_width="157dp"
         android:layout_height="wrap_content"
-        android:text="Load"
-        android:id="@+id/loadButton"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"/>
+        android:orientation="horizontal"
+        android:id="@+id/firstline">
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Load"
+            android:layout_weight="1"
+            android:id="@+id/loadButton"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"/>
+
+        <Button
+            android:id="@+id/bring"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="Bring Contact" />
+
+        <Button
+            android:id="@+id/push"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="Push Contact" />
+
+    </LinearLayout>
 
     <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/loadButton"
+        android:layout_below="@+id/firstline"
         android:choiceMode="singleChoice"
         android:id="@+id/listView"
         android:paddingBottom="40dp"
         />
+
 
 </RelativeLayout>
