@@ -20,6 +20,13 @@ import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.BufferedWriter;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
 import java.util.LinkedList;
 
 import org.json.JSONArray;
@@ -34,6 +41,21 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+
+import com.android.volley.ParseError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.HttpHeaderParser;
+import com.android.volley.toolbox.HttpResponse;
+import com.android.volley.toolbox.JsonRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 public class Tab1Contacts extends Fragment {
     ListView listView;
@@ -51,7 +73,11 @@ public class Tab1Contacts extends Fragment {
     String mJsonString;
     ListView mlistView;
     LinkedList<Tuple<String, String, String>> data = new LinkedList<Tuple<String, String, String>>();
+    JSONArray mPhoneData;
 
+
+    //서버2
+    private static String IP_ADDRESS = "http://socrip4.kaist.ac.kr:2680/api/books";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -65,12 +91,12 @@ public class Tab1Contacts extends Fragment {
         loadButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //<Tuple<String, String, String>> phoneData
+
                 new LoadContactTask().execute();
             }
         });
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        /*listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //if (position==0) {
@@ -78,13 +104,14 @@ public class Tab1Contacts extends Fragment {
                 startActivity(myintent);
                 //}
             }
-        });
+        });*/
 
         Button bring = (Button) view.findViewById(R.id.bring);
 
         bring.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(getActivity(),"click works222", Toast.LENGTH_SHORT).show();
                 mlistView = (ListView) getView().findViewById(R.id.listView);
 
                 GetData task = new GetData();
@@ -95,27 +122,100 @@ public class Tab1Contacts extends Fragment {
 
         Button push = (Button) view.findViewById(R.id.push);
 
+        LinkedList<Tuple<String, String, String>> phoneData = new LoadContactTask().doInBackground();
+        mPhoneData = resultToJson(phoneData);
+
         push.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(getActivity(),"click works", Toast.LENGTH_SHORT).show();
+                Log.d("I am", "clicking");
+
+                //String key, value;
+                for(int n = 0; n < mPhoneData.length(); n++)
+                {
+                    JSONObject object = null;
+                    try {
+                        object = mPhoneData.getJSONObject(n);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    makeRequest("http://socrip4.kaist.ac.kr:2680/api/books", object.toString());
+                }
+
+
+
+
 
             }
         });
-
 
         String URL = "http://socrip4.kaist.ac.kr:2680/api/books";
 
         return view;
     }
 
+//Start of insertData
 
-    private static void resultToJson(LinkedList<Tuple<String, String, String>> result) {
+    public static String makeRequest(String uri, String json) {
+        Log.d("I want to go -", json);
+        HttpURLConnection urlConnection;
+        String url;
+        String data = json;
+        String result = null;
+        try {
+            //Connect
+            urlConnection = (HttpURLConnection) ((new URL(uri).openConnection()));
+            urlConnection.setDoOutput(true);
+            urlConnection.setRequestProperty("Content-Type", "application/json");
+            urlConnection.setRequestProperty("Accept", "application/json");
+            urlConnection.setRequestMethod("POST");
+            urlConnection.connect();
+
+            //Write
+            OutputStream outputStream = urlConnection.getOutputStream();
+            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+            writer.write(data);
+            writer.close();
+            outputStream.close();
+
+            //Read
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream(), "UTF-8"));
+
+            String line = null;
+            StringBuilder sb = new StringBuilder();
+
+            while ((line = bufferedReader.readLine()) != null) {
+                sb.append(line);
+            }
+
+            bufferedReader.close();
+            result = sb.toString();
+
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+
+
+
+
+    private static JSONArray resultToJson(LinkedList<Tuple<String, String, String>> result) {
         Tuple<String, String, String> cur = new Tuple<String, String, String>("","","");
         cur = result.getFirst();
 
+        Map<String, String> hashMap = new HashMap<String, String>();
         JSONArray jsonArray = new JSONArray();
         for (int i=0; i<result.size(); i++) {
             try{
+                hashMap.put("name", cur.first);
+                hashMap.put("number", cur.second);
+                hashMap.put("email", cur.third);
+
                 jsonArray.getJSONObject(i).put("name", cur.first);
                 jsonArray.getJSONObject(i).put("number", cur.second);
                 jsonArray.getJSONObject(i).put("email", cur.third);
@@ -127,11 +227,15 @@ public class Tab1Contacts extends Fragment {
             }
 
         }
-
+        return jsonArray;
 
 
     }
 
+
+
+
+    //Getting contacts from database
     private class LoadContactTask extends AsyncTask<Void, Void, LinkedList<Tuple<String, String, String>>> {
         //super(view);
 
@@ -178,6 +282,8 @@ public class Tab1Contacts extends Fragment {
             return retval;
         }
     }
+
+
 
     private class GetData extends AsyncTask<String, Void, String> {
         ProgressDialog progressDialog;

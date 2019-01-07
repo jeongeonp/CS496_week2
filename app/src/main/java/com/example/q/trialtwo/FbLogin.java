@@ -45,7 +45,7 @@ public class FbLogin extends AppCompatActivity {
     ProgressDialog mDialog;
     ImageView imgAvatar;
     Button logout_button, fb, game;
-    String email, birthday, friends, name;
+    String email, birthday, friends, name, id;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -105,6 +105,7 @@ public class FbLogin extends AppCompatActivity {
                             email = object.getString("email");
                             birthday = object.getString("birthday");
                             friends = object.getJSONObject("friends").getJSONObject("summary").getString("total_count");
+                            id = object.getString("id");
 
                             Log.i("RESULTS : ", object.getString("email"));
                         }catch (Exception e){
@@ -163,6 +164,7 @@ public class FbLogin extends AppCompatActivity {
                 intent.putExtra("email", email);
                 intent.putExtra("birthday", birthday);
                 intent.putExtra("friends", friends);
+                intent.putExtra("id", id);
                 startActivity(intent);
             }
         });

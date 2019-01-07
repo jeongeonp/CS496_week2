@@ -22,6 +22,10 @@ import android.widget.Toast;
 import java.io.File;
 
 import static com.facebook.FacebookSdk.getApplicationContext;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.util.Base64;
+import org.apache.commons.io.IOUtils;
 
 public class Tab2Gallery extends Fragment {
     private File[] files;
@@ -31,16 +35,30 @@ public class Tab2Gallery extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        view = inflater.inflate(R.layout.tab2gallery, container, false);
+        //super.onCreate(savedInstanceState);
         // Set title for the GridView
         getActivity().setTitle("GridView");
         // Get the view from grid_view.xml
-
+        view = inflater.inflate(R.layout.grid_view, container, false);
+        //setContentView(R.layout.grid_view);
         loadOrRequestPermission();
 
 
         return view;
+    }
+
+
+    public String img2Text(){
+        String base64="";
+        try{
+            InputStream iSteamReader = new FileInputStream("featured-700x467.png");
+            byte[] imageBytes = IOUtils.toByteArray(iSteamReader);
+            base64 = Base64.getEncoder().encodeToString(imageBytes);
+            System.out.println(base64);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return "data:image/png;base64,"+base64;
     }
 
     public void loadOrRequestPermission() {
@@ -70,7 +88,6 @@ public class Tab2Gallery extends Fragment {
         }
 
         // Set the images from ImageAdapter.java to GridView
-
         GridView gridview = view.findViewById(R.id.gridview);
         gridview.setAdapter(new ImageAdapter(getActivity(), uris));
 
