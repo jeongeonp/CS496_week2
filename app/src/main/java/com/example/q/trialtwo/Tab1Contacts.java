@@ -129,20 +129,6 @@ public class Tab1Contacts extends Fragment {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getActivity(),"click works", Toast.LENGTH_SHORT).show();
-                Log.d("I am", "clicking");
-
-                //String key, value;
-                for(int n = 0; n < mPhoneData.length(); n++)
-                {
-                    JSONObject object = null;
-                    try {
-                        object = mPhoneData.getJSONObject(n);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                    makeRequest("http://socrip4.kaist.ac.kr:2680/api/books", object.toString());
-                }
-
 
 
 
@@ -155,7 +141,7 @@ public class Tab1Contacts extends Fragment {
         return view;
     }
 
-//Start of insertData
+//Start of insertData (서버 2)
 
     public static String makeRequest(String uri, String json) {
         Log.d("I want to go -", json);
@@ -203,7 +189,7 @@ public class Tab1Contacts extends Fragment {
 
 
 
-
+//Complicated LinkedList to better organized JSONArray
     private static JSONArray resultToJson(LinkedList<Tuple<String, String, String>> result) {
         Tuple<String, String, String> cur = new Tuple<String, String, String>("","","");
         cur = result.getFirst();
@@ -235,7 +221,7 @@ public class Tab1Contacts extends Fragment {
 
 
 
-    //Getting contacts from database
+    //로드 해오는법 (서버 1)
     private class LoadContactTask extends AsyncTask<Void, Void, LinkedList<Tuple<String, String, String>>> {
         //super(view);
 

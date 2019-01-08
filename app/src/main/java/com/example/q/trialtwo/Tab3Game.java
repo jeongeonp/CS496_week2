@@ -24,12 +24,12 @@ public class Tab3Game extends Fragment {
             }
         });
 
-        Button newPage2 = (Button)view.findViewById(R.id.button2);
+        Button newPage2 = (Button)view.findViewById(R.id.button3);
         newPage2.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Ranking.class);
+                Intent intent = new Intent(getActivity(), ActualRanking.class);
                 startActivity(intent);
             }
         });

@@ -36,6 +36,7 @@
         <activity android:name=".FbLogin"></activity>
         <activity android:name=".Ranking"></activity>
         <activity android:name=".Tab1Extra"></activity>
+        <activity android:name=".ActualRanking"></activity>
     </application>
 
 </manifest>
