@@ -32,7 +32,7 @@
                 android:id="@+id/name"
                 android:gravity="center"
                 android:layout_gravity="center"
-                android:textSize="18dp"
+                android:textSize="16dp"
                 android:layout_weight="2"
                 />
 
@@ -42,7 +42,7 @@
                 android:id="@+id/email"
                 android:gravity="center"
                 android:layout_gravity="center"
-                android:textSize="18dp"
+                android:textSize="16dp"
                 android:layout_weight="2"
                 />
 
@@ -66,15 +66,17 @@
             android:id="@+id/start"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
+            android:backgroundTint="#FFFFFF"
+            android:textColor="@color/colorPrimary"
             android:text="Start"/>
         <TextView
-            android:layout_marginTop="20dp"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/timer"
             android:text="30 secs remaining"
-            android:textSize="18dp"
+            android:textSize="17dp"
             android:layout_marginBottom="60dp"/>
 
         <LinearLayout
@@ -97,13 +99,15 @@
 
 
         <TextView
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="33dp"
             android:textAlignment="center"
             android:id="@+id/question"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="8 + 9 = 17"
-            android:textSize="40dp"
+            android:textSize="48dp"
+            android:textStyle="bold"
+            android:textColor="#000000"
             />
 
         <LinearLayout
@@ -116,14 +120,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="yes"
-                android:layout_marginRight="30dp"/>
+                android:layout_marginRight="30dp"
+                android:backgroundTint="#F16B6F"
+                android:textColor="#FFFFFF"/>
 
             <Button
                 android:id="@+id/no"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="no"
-                android:layout_marginLeft="30dp"/>
+                android:layout_marginLeft="30dp"
+                android:backgroundTint="#F16B6F"
+                android:textColor="#FFFFFF"/>
 
 
         </LinearLayout>

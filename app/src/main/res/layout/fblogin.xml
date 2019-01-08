@@ -105,6 +105,8 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="50dp"
             android:text="If this is you, click here to start!"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="@color/colorPrimary"
             android:layout_gravity="center"
             />
 

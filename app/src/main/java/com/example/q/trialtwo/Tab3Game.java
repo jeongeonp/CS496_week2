@@ -15,6 +15,9 @@ public class Tab3Game extends Fragment {
         View view = inflater.inflate(R.layout.tab3game, container, false);
 
         Button newPage = (Button)view.findViewById(R.id.button1);
+        Button newPage2 = (Button) view.findViewById(R.id.button2);
+        //newPage.setBackgroundColor(0X00F16B6F);
+
         newPage.setOnClickListener(new View.OnClickListener() {
 
             @Override

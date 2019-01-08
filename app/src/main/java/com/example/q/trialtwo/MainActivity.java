@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         askPermission();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -61,18 +62,18 @@ public class MainActivity extends AppCompatActivity {
 
         tabLayout.getTabAt(0).setText("CONTACTS");
         tabLayout.getTabAt(1).setText("GALLERY");
-        tabLayout.getTabAt(2).setText("UNDECIDED");
+        tabLayout.getTabAt(2).setText("BRAIN GAME");
 
 
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+//
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
 
     }
 

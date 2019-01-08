@@ -212,7 +212,7 @@ public class game extends AppCompatActivity {
                         startActivity(intent2);
                         finish();
                     }
-                }, 3000);
+                }, 30000);
             }
         });
 

@@ -29,7 +29,9 @@
             android:id="@+id/loadButton"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"/>
+            android:layout_alignParentEnd="true"
+            android:backgroundTint="#FFFFFF"
+            android:textColor="@color/colorPrimary"/>
 
         <Button
             android:id="@+id/bring"
@@ -39,7 +41,9 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:text="Bring Contact" />
+            android:text="Bring Contact"
+            android:backgroundTint="#FFFFFF"
+            android:textColor="@color/colorPrimary"/>
 
         <Button
             android:id="@+id/push"
@@ -49,7 +53,9 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:text="Push Contact" />
+            android:text="Push Contact"
+            android:backgroundTint="#FFFFFF"
+            android:textColor="@color/colorPrimary"/>
 
     </LinearLayout>
 

@@ -153,7 +153,7 @@ public class Tab1Contacts extends Fragment {
         push.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                for (idx=0; idx<phoneData.size(); idx++) {
+                //for (idx=0; idx<phoneData.size(); idx++) {
 
                     String url = "http://socrip4.kaist.ac.kr:2680/api/books";
 
@@ -199,7 +199,7 @@ public class Tab1Contacts extends Fragment {
                     };
                     RequestQueue requestQueue = Volley.newRequestQueue(getContext());
                     requestQueue.add(stringRequest);
-                }
+                //}
                 Toast.makeText(getActivity(), "click works", Toast.LENGTH_SHORT).show();
 
 
@@ -448,6 +448,7 @@ public class Tab1Contacts extends Fragment {
                 Tuple<String, String, String> idd = new Tuple<>(name, id, address);
 
                 data.add(idd);
+                Log.d("I am adding", idd.first);
             }
 
             Tab1Adapter dataAdapter = new Tab1Adapter(getActivity(), R.layout.list_item, data);

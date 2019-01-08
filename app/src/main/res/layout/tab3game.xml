@@ -11,14 +11,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Start Game"
-
+        android:backgroundTint="#FFFFFF"
+        android:textColor="@color/colorPrimary"
         android:id="@+id/button1"/>
     <Button
+        android:layout_marginTop="60dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="RANKING - Coming Soon!"
         android:textAllCaps="false"
-        android:id="@+id/button2"/>
+        android:backgroundTint="#FFFFFF"
+        android:textColor="@color/colorPrimary"
+        android:id="@+id/button2"
+        android:layout_marginBottom="20dp"/>
     <!--<Button-->
         <!--android:layout_width="wrap_content"-->
         <!--android:layout_height="wrap_content"-->

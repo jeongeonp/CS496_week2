@@ -28,7 +28,7 @@
             android:text="01094611461"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorAccent"
+            android:textColor="@color/colorPrimary"
             android:textSize="16sp" />
 
         <TextView
@@ -36,7 +36,7 @@
             android:text="patricia021912@gmail.com"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorAccent"
             android:textSize="16sp" />
 
 

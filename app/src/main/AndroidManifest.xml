@@ -10,7 +10,7 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/third"
-        android:label="장충동왕족발"
+        android:label="Trial and Error"
         android:roundIcon="@mipmap/third"
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
@@ -37,8 +37,8 @@
         <activity android:name=".ActualRanking"></activity>
         <activity android:name=".FullImageActivity"></activity>
 
+        <activity android:name=".Photo"></activity>
 
-        <activity android:name=".AlbumActivity"></activity>
     </application>
 
 </manifest>
