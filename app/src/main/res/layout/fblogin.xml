@@ -7,14 +7,7 @@
     android:layout_gravity="center_horizontal"
     tools:context=".FbLogin">
 
-    <Button
-        android:id="@+id/game"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:text="start game"
-        />
+
 
     <LinearLayout
         android:orientation="vertical"
@@ -30,8 +23,8 @@
 
         <TextView
             android:id="@+id/txtEmail"
-            android:layout_marginTop="10dp"
-            android:textSize="20dp"
+            android:layout_marginTop="20dp"
+            android:textSize="16dp"
             android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
@@ -39,7 +32,7 @@
         <TextView
             android:id="@+id/txtBirthday"
             android:layout_marginTop="10dp"
-            android:textSize="20dp"
+            android:textSize="16dp"
             android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
@@ -47,13 +40,13 @@
         <TextView
             android:id="@+id/txtFriends"
             android:layout_marginTop="10dp"
-            android:textSize="20dp"
+            android:textSize="16dp"
             android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <LinearLayout
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="45dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -104,6 +97,16 @@
 
 
         </LinearLayout>
+
+        <Button
+            android:id="@+id/game"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:text="If this is you, click here to start!"
+            android:layout_gravity="center"
+            />
 
 
     </LinearLayout>

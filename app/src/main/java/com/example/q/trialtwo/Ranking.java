@@ -26,8 +26,9 @@ public class Ranking extends AppCompatActivity {
 
         //Intent intent = getIntent();
         String totalScore = getIntent().getStringExtra("score");
-        String userName = getIntent().getStringExtra("name");
+        //String userName = getIntent().getStringExtra("name");
         Log.d("totalscore received", totalScore);
+        //Log.d("username received", userName);
 
         scoreboard = (TextView) findViewById(R.id.scoreboard);
         scoreboard.setText("Your score is: " + totalScore);
@@ -36,10 +37,11 @@ public class Ranking extends AppCompatActivity {
 
 
 
-        Intent intent = new Intent(Ranking.this, ActualRanking.class);
-        intent.putExtra("name", userName);
-        intent.putExtra("score", totalScore);
-        intent.putExtra("time", currentDateTimeString);
+        Intent intent3 = new Intent(Ranking.this, ActualRanking.class);
+        //intent3.putExtra("name", (String) userName);
+        //Log.d("nameeeee", userName);
+        intent3.putExtra("score", (String) totalScore);
+        intent3.putExtra("time", (String) currentDateTimeString);
 
 
 

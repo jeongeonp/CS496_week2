@@ -147,9 +147,9 @@ public class FbLogin extends AppCompatActivity {
                 AccessToken.setCurrentAccessToken(null);
                 //imgAvatar.setVisibility(View.INVISIBLE);
                 imgAvatar.setImageResource(R.drawable.def);
-                txtEmail.setText("Logged out ;o");
-                txtBirthday.setText("");
-                txtFriends.setText("");
+                txtEmail.setText(" ");
+                txtBirthday.setText("Logged out ;o");
+                txtFriends.setText(" ");
                 //AccessToken.getCurrentAccessToken() = null;
 
             }

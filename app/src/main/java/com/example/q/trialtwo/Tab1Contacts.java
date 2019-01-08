@@ -81,7 +81,7 @@ public class Tab1Contacts extends Fragment {
     private static final String TAG_ADDRESS = "email";
     String mJsonString;
     ListView mlistView;
-    LinkedList<Tuple<String, String, String>> data = new LinkedList<Tuple<String, String, String>>();
+    LinkedList<Tuple<String, String, String>> data;
     JSONArray mPhoneData;
     String smPhoneData;
     JSONObject omPhoneData;
@@ -139,7 +139,7 @@ public class Tab1Contacts extends Fragment {
 
         Button push = (Button) view.findViewById(R.id.push);
 
-
+        //phoneData = data;
         phoneData = new LoadContactTask().doInBackground();
         //Toast.makeText(getContext(), phoneData.size(), Toast.LENGTH_SHORT).show();
         //mPhoneData = resultToJson(phoneData);
@@ -434,6 +434,7 @@ public class Tab1Contacts extends Fragment {
     private void showResult() {
         try {
             JSONArray jsonArray = new JSONArray(mJsonString);
+            data = new LinkedList<Tuple<String, String, String>>();
 
             for (int i = 0; i < jsonArray.length(); i++) {
 
@@ -442,7 +443,7 @@ public class Tab1Contacts extends Fragment {
                 String id = item.getString(TAG_ID);
                 String name = item.getString(TAG_NAME);
                 String address = item.getString(TAG_ADDRESS);
-                Log.d("each item", "each item has " + name + " phone number: " + id + " and email address: " );
+                Log.d("each item", "each item has " + name + " phone number: " + id + " and email address: " +address);
 
                 Tuple<String, String, String> idd = new Tuple<>(name, id, address);
 
