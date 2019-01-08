@@ -33,6 +33,7 @@ public class Tab2Gallery extends Fragment {
     public final int REQUEST_CODE = 1;
     private View view;
 
+    // For test
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         //super.onCreate(savedInstanceState);
