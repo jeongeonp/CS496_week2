@@ -1,17 +1,25 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/info"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:textAlignment="center"
-    android:gravity="center">
+    android:gravity="center"
+    tools:context=".ActualRanking">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Time Name Score"
         android:textSize="30dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:id="@+id/result"
+        />
 
 
 </LinearLayout>

@@ -23,20 +23,11 @@ public class Tab3Game extends Fragment {
                 startActivity(intent);
             }
         });
-
-        Button newPage2 = (Button)view.findViewById(R.id.button3);
-        newPage2.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), ActualRanking.class);
-                startActivity(intent);
-            }
-        });
         return view;
-    }
 
-   /* public void buttonClick(View v) {
+    }
+/*
+  public void buttonClick(View v) {
         Intent intent = new Intent(getActivity(), FbLogin.class);
         startActivity(intent);
     }*/

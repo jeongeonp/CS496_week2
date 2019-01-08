@@ -33,7 +33,7 @@ public class game extends AppCompatActivity {
     Button yes, no;
     int totalScore, rn;
     boolean found;
-    String quest, curAns, s_name;
+    String quest, curAns;
     Map<String, String> questions;
 
 
@@ -51,11 +51,14 @@ public class game extends AppCompatActivity {
 
 
         Intent intent = getIntent();
-        s_name = intent.getStringExtra("name");
+        String s_name = intent.getStringExtra("name");
         String s_email = intent.getStringExtra("email");
         String s_birthday = intent.getStringExtra("birthday");
         String s_friends = intent.getStringExtra("friends");
         String s_id = intent.getStringExtra("id");
+
+        //if (s_name.equals(null)) {s_name = "Not Logged In";}
+        //if (s_email.equals(null)) {s_email = "";}
 
 
         URL profile_picture = null;
@@ -72,8 +75,8 @@ public class game extends AppCompatActivity {
         //birthday = (TextView) findViewById(R.id.birthday);
         //friends = (TextView) findViewById(R.id.friends);
 
-        name.setText("Name: " + s_name);
-        email.setText("Email: " + s_email);
+        name.setText(s_name);
+        email.setText(s_email);
         //birthday.setText("Birthday: " + s_birthday);
         //friends.setText("Number of Friends: " + s_friends);
 
@@ -202,13 +205,14 @@ public class game extends AppCompatActivity {
                     public void run() {
                         Intent intent2 = new Intent(game.this, Ranking.class);
                         intent2.putExtra("score", Integer.toString(totalScore));
-                        intent2.putExtra("name", s_name);
+                        //intent2.putExtra("name", (String) getIntent().getStringExtra("name"));
                         Log.d("totalscore", Integer.toString(totalScore));
                         Log.d("totalscore2", intent2.getStringExtra("score"));
+                        //Log.d("totalscore3", intent2.getStringExtra("name"));
                         startActivity(intent2);
                         finish();
                     }
-                }, 30000);
+                }, 3000);
             }
         });
 
