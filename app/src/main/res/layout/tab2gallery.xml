@@ -16,6 +16,13 @@
     <!--위에 이미지뷰는 왜 있는거지? 기존과 다르게 button과 imageView가 추가됨
     그리고 테스트용으로 추가 좀 해봅니다.-->
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Load image"
+        android:id="@+id/button0"
+        android:layout_marginBottom="5dp"/>
+
     <GridView
         android:id="@+id/image_grid"
         android:layout_width="fill_parent"
