@@ -7,6 +7,13 @@
     tools:context=".FullImageActivity">
     <!-- 세번째줄은 원래 함수에서도 안 돌아갔음 -->
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Load image"
+        android:id="@+id/button0"
+        android:layout_marginBottom="5dp"/>
+
     <ImageView
         android:id="@+id/full_image"
         android:layout_width="match_parent"
