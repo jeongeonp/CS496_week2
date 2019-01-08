@@ -26,6 +26,4 @@ public class FullImageActivity extends AppCompatActivity {
         fullImage.setImageURI(Uri.parse(data));
 
             }
-        });
-    }
 }
