@@ -11,8 +11,10 @@
         android:layout_height="wrap_content"
         android:text="ddddddd"
         android:id="@+id/scoreboard"
-        android:textSize="30dp"
+        android:textSize="40dp"
         android:textStyle="bold"
+        android:fontFamily="@font/possible"
+
         />
     <TextView
         android:layout_width="wrap_content"
@@ -20,6 +22,8 @@
         android:text="Great Job XD"
         android:textSize="18dp"
         android:layout_margin="13dp"
-        android:textColor="@color/colorPrimary"/>
+        android:textColor="@color/colorPrimary"
+        android:fontFamily="@font/possible"
+        />
 
 </LinearLayout>

@@ -13,7 +13,9 @@
         android:text="Start Game"
         android:backgroundTint="#FFFFFF"
         android:textColor="@color/colorPrimary"
-        android:id="@+id/button1"/>
+        android:id="@+id/button1"
+        android:fontFamily="@font/possible"
+        />
     <Button
         android:layout_marginTop="60dp"
         android:layout_width="wrap_content"
@@ -23,7 +25,9 @@
         android:backgroundTint="#FFFFFF"
         android:textColor="@color/colorPrimary"
         android:id="@+id/button2"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/possible"
+        />
     <!--<Button-->
         <!--android:layout_width="wrap_content"-->
         <!--android:layout_height="wrap_content"-->

@@ -31,7 +31,10 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:backgroundTint="#FFFFFF"
-            android:textColor="@color/colorPrimary"/>
+            android:textColor="@color/colorPrimary"
+            android:fontFamily="@font/possible"
+            android:textStyle="bold"
+            />
 
         <Button
             android:id="@+id/bring"
@@ -43,7 +46,10 @@
             android:layout_alignParentTop="true"
             android:text="Bring Contact"
             android:backgroundTint="#FFFFFF"
-            android:textColor="@color/colorPrimary"/>
+            android:textColor="@color/colorPrimary"
+            android:fontFamily="@font/possible"
+            android:textStyle="bold"
+            />
 
         <Button
             android:id="@+id/push"
@@ -55,7 +61,10 @@
             android:layout_alignParentTop="true"
             android:text="Push Contact"
             android:backgroundTint="#FFFFFF"
-            android:textColor="@color/colorPrimary"/>
+            android:textColor="@color/colorPrimary"
+            android:fontFamily="@font/possible"
+            android:textStyle="bold"
+            />
 
     </LinearLayout>
 

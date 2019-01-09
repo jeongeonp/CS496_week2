@@ -19,14 +19,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="upload" />
+            android:text="upload"
+            android:fontFamily="@font/possible"/>
 
         <Button
             android:id="@+id/httpTest2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="download" />
+            android:text="download"
+            android:fontFamily="@font/possible"/>
 
     </LinearLayout>
 
@@ -35,7 +37,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Connecting..."
-        android:textSize="20pt" />
+        android:layout_marginTop="23dp"
+        android:textSize="20pt"
+        android:fontFamily="@font/possible"/>
 
 
     <ImageView
