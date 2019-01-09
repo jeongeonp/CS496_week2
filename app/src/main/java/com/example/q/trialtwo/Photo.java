@@ -270,7 +270,7 @@ public class Photo extends AppCompatActivity {
             //Log.d("11111",result.toString());
             super.onPostExecute(result);
             Toast.makeText(getApplicationContext(), "Upload Successful", Toast.LENGTH_SHORT).show();
-            tvData.setText(result);//서버로 부터 받은 값을 출력해주는 부
+            tvData.setText("");//서버로 부터 받은 값을 출력해주는 부
 
 
         }

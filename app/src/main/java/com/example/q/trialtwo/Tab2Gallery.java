@@ -79,7 +79,7 @@ public class Tab2Gallery extends Fragment {
                         Intent intent = new Intent(getActivity(), Photo.class);
                         intent.putExtra("uri", uri.toString());
                         intent.putExtra("fileOrder",Integer.toString(i));
-                        Toast.makeText(getApplicationContext(),"this is " + i, Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getApplicationContext(),"this is " + i, Toast.LENGTH_SHORT).show();
                         startActivity(intent);
                     }
                 });

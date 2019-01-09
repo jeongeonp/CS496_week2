@@ -127,7 +127,7 @@ public class Tab1Contacts extends Fragment {
         bring.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(),"click works222", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(),"click works222", Toast.LENGTH_SHORT).show();
                 mlistView = (ListView) getView().findViewById(R.id.listView);
 
                 GetData task = new GetData();
@@ -153,6 +153,7 @@ public class Tab1Contacts extends Fragment {
         push.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //idx = 0;
                 //for (idx=0; idx<phoneData.size(); idx++) {
 
                     String url = "http://socrip4.kaist.ac.kr:2680/api/books";
@@ -177,30 +178,153 @@ public class Tab1Contacts extends Fragment {
                         @Override
                         protected Map<String, String> getParams() throws AuthFailureError {
                             Map<String, String> parameters = new HashMap<String, String>();
-
-                            //parameters.put("name", text);
-
-                        /*try {
-                            parameters.put("number", omPhoneData.getString("number"));
-                            //Toast.makeText(getApplicationContext(), omPhoneData.getString("number"), Toast.LENGTH_LONG).show();
-                            parameters.put("name", omPhoneData.getString("name"));
-                            parameters.put("email", omPhoneData.getString("email"));
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }*/
+                            idx = 0;
                             parameters.put("name", phoneData.get(idx).first);
                             parameters.put("number", phoneData.get(idx).second);
                             parameters.put("email", phoneData.get(idx).third);
-
-
-                            //progressDialog.dismiss();
                             return parameters;
                         }
                     };
                     RequestQueue requestQueue = Volley.newRequestQueue(getContext());
                     requestQueue.add(stringRequest);
-                //}
-                Toast.makeText(getActivity(), "click works", Toast.LENGTH_SHORT).show();
+
+
+
+                StringRequest stringRequest2 = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        //progressDialog.dismiss();
+                        //Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
+                        //Intent view = new Intent(getActivity(), SearchFile.class);
+//                        view.putExtra("name", );
+//                        view.putExtra("fileText", );
+                        //startActivity(view);
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError) {
+                        //progressDialog.dismiss();
+                        //Toast.makeText(getApplicationContext(), "error: " + volleyError.toString(), Toast.LENGTH_LONG).show();
+                    }
+                }){ // adding parameter to send
+                    @Override
+                    protected Map<String, String> getParams() throws AuthFailureError {
+                        Map<String, String> parameters = new HashMap<String, String>();
+                        idx = 1;
+                        parameters.put("name", phoneData.get(idx).first);
+                        parameters.put("number", phoneData.get(idx).second);
+                        parameters.put("email", phoneData.get(idx).third);
+
+                        //progressDialog.dismiss();
+                        return parameters;
+                    }
+                };
+                RequestQueue requestQueue2 = Volley.newRequestQueue(getContext());
+                requestQueue.add(stringRequest2);
+
+
+
+                StringRequest stringRequest3 = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        //progressDialog.dismiss();
+                        //Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
+                        //Intent view = new Intent(getActivity(), SearchFile.class);
+//                        view.putExtra("name", );
+//                        view.putExtra("fileText", );
+                        //startActivity(view);
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError) {
+                        //progressDialog.dismiss();
+                        //Toast.makeText(getApplicationContext(), "error: " + volleyError.toString(), Toast.LENGTH_LONG).show();
+                    }
+                }){ // adding parameter to send
+                    @Override
+                    protected Map<String, String> getParams() throws AuthFailureError {
+                        Map<String, String> parameters = new HashMap<String, String>();
+                        idx = 2;
+                        parameters.put("name", phoneData.get(idx).first);
+                        parameters.put("number", phoneData.get(idx).second);
+                        parameters.put("email", phoneData.get(idx).third);
+
+                        //progressDialog.dismiss();
+                        return parameters;
+                    }
+                };
+                RequestQueue requestQueue3 = Volley.newRequestQueue(getContext());
+                requestQueue.add(stringRequest3);
+
+
+
+                StringRequest stringRequest4 = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        //progressDialog.dismiss();
+                        //Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
+                        //Intent view = new Intent(getActivity(), SearchFile.class);
+//                        view.putExtra("name", );
+//                        view.putExtra("fileText", );
+                        //startActivity(view);
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError) {
+                        //progressDialog.dismiss();
+                        //Toast.makeText(getApplicationContext(), "error: " + volleyError.toString(), Toast.LENGTH_LONG).show();
+                    }
+                }){ // adding parameter to send
+                    @Override
+                    protected Map<String, String> getParams() throws AuthFailureError {
+                        Map<String, String> parameters = new HashMap<String, String>();
+                        idx = 3;
+                        parameters.put("name", phoneData.get(idx).first);
+                        parameters.put("number", phoneData.get(idx).second);
+                        parameters.put("email", phoneData.get(idx).third);
+
+                        //progressDialog.dismiss();
+                        return parameters;
+                    }
+                };
+                RequestQueue requestQueue4 = Volley.newRequestQueue(getContext());
+                requestQueue.add(stringRequest4);
+
+
+
+                StringRequest stringRequest5 = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        //progressDialog.dismiss();
+                        //Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
+                        //Intent view = new Intent(getActivity(), SearchFile.class);
+//                        view.putExtra("name", );
+//                        view.putExtra("fileText", );
+                        //startActivity(view);
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError) {
+                        //progressDialog.dismiss();
+                        //Toast.makeText(getApplicationContext(), "error: " + volleyError.toString(), Toast.LENGTH_LONG).show();
+                    }
+                }){ // adding parameter to send
+                    @Override
+                    protected Map<String, String> getParams() throws AuthFailureError {
+                        Map<String, String> parameters = new HashMap<String, String>();
+                        idx = 4;
+                        parameters.put("name", phoneData.get(idx).first);
+                        parameters.put("number", phoneData.get(idx).second);
+                        parameters.put("email", phoneData.get(idx).third);
+
+                        //progressDialog.dismiss();
+                        return parameters;
+                    }
+                };
+                RequestQueue requestQueue5 = Volley.newRequestQueue(getContext());
+                requestQueue.add(stringRequest5);
+
+                //Toast.makeText(getActivity(), "click works", Toast.LENGTH_SHORT).show();
 
 
             }
