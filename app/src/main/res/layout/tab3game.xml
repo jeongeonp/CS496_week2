@@ -15,6 +15,7 @@
         android:textColor="@color/colorPrimary"
         android:id="@+id/button1"
         android:fontFamily="@font/possible"
+        android:textSize="16dp"
         />
     <Button
         android:layout_marginTop="60dp"
@@ -27,6 +28,7 @@
         android:id="@+id/button2"
         android:layout_marginBottom="20dp"
         android:fontFamily="@font/possible"
+        android:textSize="16dp"
         />
     <!--<Button-->
         <!--android:layout_width="wrap_content"-->

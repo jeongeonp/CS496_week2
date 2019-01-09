@@ -34,6 +34,7 @@
             android:textColor="@color/colorPrimary"
             android:fontFamily="@font/possible"
             android:textStyle="bold"
+            android:textSize="15dp"
             />
 
         <Button
@@ -49,6 +50,7 @@
             android:textColor="@color/colorPrimary"
             android:fontFamily="@font/possible"
             android:textStyle="bold"
+            android:textSize="15dp"
             />
 
         <Button
@@ -64,6 +66,7 @@
             android:textColor="@color/colorPrimary"
             android:fontFamily="@font/possible"
             android:textStyle="bold"
+            android:textSize="15dp"
             />
 
     </LinearLayout>

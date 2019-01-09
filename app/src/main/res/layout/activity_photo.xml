@@ -20,6 +20,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="upload"
+            android:backgroundTint="#FFFFFF"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16dp"
             android:fontFamily="@font/possible"/>
 
         <Button
@@ -28,6 +31,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="download"
+            android:backgroundTint="#FFFFFF"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16dp"
             android:fontFamily="@font/possible"/>
 
     </LinearLayout>
@@ -37,7 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Connecting..."
-        android:layout_marginTop="23dp"
+        android:layout_marginTop="33dp"
         android:textSize="20pt"
         android:fontFamily="@font/possible"/>
 
